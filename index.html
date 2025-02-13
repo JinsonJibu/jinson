@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="angular.min.js"></script>
+    <style>
+        #price{
+            background-color: cyan;
+            font-size: large;
+            font-style: oblique;
+            text-align: center;
+        }
+        img{
+            height: 100px;
+            width: 100px;
+        }
+        button{
+            background-color: rgb(9, 95, 175);
+            margin-left: 4%;
+            margin-top: 5%;
+            margin-bottom: 2%;
+        }
+        body{
+            background-color: rgb(219, 225, 226);
+        }
+    </style>
+</head>
+<body ng-app="myapp" ng-controller="mycontroller">
+    <script>
+        var app=angular.module('myapp',[])
+        app.controller('mycontroller',function($scope){
+            $scope.calc=function(){
+                var apple=parseInt($scope.app)
+                var mango=parseInt($scope.man)
+                var cherry=parseInt($scope.che)
+                var guava=parseInt($scope.gua)
+                var ap=apple*200
+                var ma=mango*80
+                var ch=cherry*100
+                var gu=guava*70
+                var total=ap+ma+ch+gu
+                $scope.output="Total price :" + total
+            }
+        })
+    </script>
+    <table>
+        <center><h2>Order Fruit</h2>
+        <tr >
+            <td rowspan="3">
+                <img src="" alt="Image 1" ><figure>Apple - Rs 200/kg</figure>
+            </td>
+            <td rowspan="3">
+                <img src="" alt="Image 2"><figure>Mango - Rs 80/kg</figure>
+            </td>
+            <td rowspan="3">
+                <img src="" alt="Image 3"><figure>Cherry - Rs 100/kg</figure>
+            </td>
+            <td rowspan="3">
+                <img src="" alt="Image 4"><figure>Guava - Rs 70/kg</figure>
+            </td>
+        </tr>
+    </table>
+
+   
+    <label for="">Apple (Quantity)</label><br><br>
+    <input type="text" ng-model="app" placeholder="Enter Number of KG"><br><br>
+
+    <label for="">Mango (Quantity)</label><br><br>
+    <input type="text" ng-model="man" placeholder="Enter Number of KG"><br><br>
+
+    <label for="">Cherry (Quantity)</label><br><br>
+    <input type="text" ng-model="che" placeholder="Enter Number of KG"><br><br>
+
+    <label for="">Guava (Quantity)</label><br><br>
+    <input type="text" ng-model="gua" placeholder="Enter Number of KG"><br><br>
+
+    <button ng-click="calc()">Place Order</button>
+    <hr>
+    <div ng-bind="output" id="price">Total Price</div>
+</center>
+</body>
+</html>
